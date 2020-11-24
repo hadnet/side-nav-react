@@ -106,7 +106,7 @@ export class SideNav extends React.Component<SideNavProps, SideNavState> {
       <ThemeProvider theme={theme ? theme : dark ? defaultTheme.dark : defaultTheme.light}>
         <SideMenu isOpen={isOpen}>
           <OpenContext.Provider value={isOpen}>
-            <MenuItem pivot bold isOpen={isOpen} icon={`FaBars`} onClick={this.setOpen}>
+            <MenuItem pivot bold isOpen={isOpen} icon="FaBars" onClick={this.setOpen}>
               <Frame isOpen={isOpen}>
                 <FaTimes />
               </Frame>
