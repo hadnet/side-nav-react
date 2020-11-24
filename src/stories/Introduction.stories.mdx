@@ -1,0 +1,189 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Code from './assets/code-brackets.svg';
+import Colors from './assets/colors.svg';
+import Comments from './assets/comments.svg';
+import Flow from './assets/flow.svg';
+import Plugin from './assets/plugin.svg';
+import StackAlt from './assets/stack-alt.svg';
+
+<Meta title="SideNav/Introduction" />
+
+<style>{`
+  .subheading {
+    --mediumdark: '#999999';
+    font-weight: 900;
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 6px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    margin-top: 40px;
+  }
+
+  .link-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+  }
+
+  @media (min-width: 620px) {
+    .link-list {
+      row-gap: 20px;
+      column-gap: 20px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media all and (-ms-high-contrast:none) {
+  .link-list {
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-rows: 1fr 1fr;
+    }
+  }
+
+  .link-item {
+    display: block;
+    padding: 20px 30px 20px 15px;
+    border: 1px solid #00000010;
+    border-radius: 5px;
+    transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+    color: #333333;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .link-item:hover {
+    border-color: #1EA7FD50;
+    transform: translate3d(0, -3px, 0);
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+  }
+
+  .link-item:active {
+    border-color: #1EA7FD;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .link-item strong {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .link-item img {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+    flex: none;
+  }
+
+  .link-item span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .tip {
+    display: inline-block;
+    border-radius: 1em;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 700;
+    background: #E7FDD8;
+    color: #66BF3C;
+    padding: 4px 12px;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+
+  .tip-wrapper {
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .tip-wrapper code {
+    font-size: 12px;
+    display: inline-block;
+  }
+
+
+`}</style>
+
+# React Basic SideNav
+
+A React Side Navigation created it with 💅🏾 [**Styled Components**](https://styled-components.com) in [**TypeScript**](https://www.typescriptlang.org/)
+
+If you want to see it running in React, just run `yarn start`.
+
+You can check out the source on [**Github**](https://github.com/hadnet).
+
+<div className="subheading">Configure</div>
+
+<div className="link-list">
+  <a className="link-item" href="https://storybook.js.org/docs/react/api/presets" target="_blank">
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Compatible</strong>
+      You can use the &lt;SideNav.Item /> with React Router Link or Next.Js next/link
+      or even with the router.push() using the onClick prop.
+    </span>
+  </a>
+  <a
+  className="link-item"
+  href="https://storybook.js.org/docs/react/configure/webpack"
+  target="_blank"
+>
+  <img src={StackAlt} alt="Build" />
+  <span>
+      <strong>Declarative</strong>
+      Easy to use, just &lt;SideNav />, &lt;SideNav.Item /> and &lt;SideNav.ItemGroup /> components
+    </span>
+  </a>
+  <a
+  className="link-item"
+  href="https://storybook.js.org/docs/react/configure/styling-and-css"
+  target="_blank"
+>
+  <img src={Colors} alt="colors" />
+  <span>
+      <strong>Styling</strong>
+      Easy setup with the Theme property of SideNav
+    </span>
+</a>
+  <a
+  className="link-item"
+  href="https://storybook.js.org/docs/react/get-started/setup#configure-storybook-for-your-stack"
+  target="_blank"
+>
+  <img src={Flow} alt="flow" />
+  <span>
+      <strong>Types</strong>
+      Made it natively with TypeScript.
+    </span>
+</a>
+</div>
+
+<div className="subheading">Learn</div>
+
+<div className="link-list">
+  <a className="link-item" href="https://github.com/storybookjs/storybook" target="_blank">
+    <img src={Code} alt="code" />
+    <span>
+      <strong>GitHub project</strong>
+      View the source and add issues
+    </span>
+  </a>
+  <a className="link-item" href="https://discord.gg/UUt2PJb" target="_blank">
+    <img src={Comments} alt="comments" />
+    <span>
+      <strong>Discord chat</strong>
+      Chat with maintainers and the community
+    </span>
+  </a>
+</div>
+<div className="tip-wrapper">
+  Created by <span className="tip">hadnet</span>
+</div>

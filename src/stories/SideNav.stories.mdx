@@ -1,0 +1,98 @@
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Description,
+  Source,
+  ArgsTable,
+  Preview,
+  Story,
+} from '@storybook/addon-docs/blocks';
+import dedent from 'ts-dedent';
+import {SideNav} from '../components/SideNav';
+const Item = SideNav.Item;
+const ItemGroup = SideNav.ItemGroup;
+
+<Meta title="SideNav/SideNavMDX" component={SideNav} argTypes={{
+    theme: {
+      description: 'An object with a shape of:',
+      table: {
+        defaultValue: {
+          summary: 'object',
+          detail: `
+{
+  primary: '#1c99f3',
+  highlight: '#252423',
+  sideNavBackground: '#1b1a19',
+  textColor: 'white',
+}
+`,
+        },
+        type: {
+          summary: 'ThemeProps',
+          detail: `
+{
+  primary: string,
+  highlight: string,
+  sideNavBackground: string,
+  textColor: string,
+}
+`,
+        },
+      },
+      control: {
+        type: 'text',
+      },
+    },
+  contextTitle: {
+    description: 'Title for the hamburger menu button',
+    table: {
+      defaultValue: {
+        summary: '',
+      },
+      type: {
+        summary: 'string',
+      }
+    },
+    control: {
+      type: 'text',
+    },
+  }
+}} />
+
+<Title>Side Nav</Title>
+<Subtitle>A story in MDX</Subtitle>
+
+<Description of={SideNav} />
+
+<Preview>
+  <Story name="Basic">
+{(args) => <SideNav {...args}>
+      <SideNav.Item active icon={'FaAd'} onClick={() => console.log('clicked')}>
+        First Option
+      </SideNav.Item>
+      <SideNav.Item icon={`FaBitcoin`}>Bitcoin</SideNav.Item>
+      <SideNav.ItemGroup title="Group 1">
+        <SideNav.Item>Sub 1</SideNav.Item>
+        <SideNav.Item>Sub 2</SideNav.Item>
+      </SideNav.ItemGroup>
+      <SideNav.ItemGroup title="Group 2">
+        <SideNav.Item>Sub 1</SideNav.Item>
+        <SideNav.Item>Sub 2</SideNav.Item>
+      </SideNav.ItemGroup>
+      <SideNav.Item icon={`FaAddressBook`}>Third Option</SideNav.Item>
+      <SideNav.Item>Fourth Option</SideNav.Item>
+    </SideNav>}
+  </Story>
+</Preview>
+
+### You can import like this:
+<Source language="ts" code={dedent`
+  import {SideNav} from 'react-side-nav';
+`} />
+
+### SideNav props
+<ArgsTable story="Basic" />
+
+### SideNav members
+<ArgsTable components={{Item, ItemGroup}} />
