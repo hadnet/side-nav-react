@@ -6,7 +6,7 @@
 
 ##### import
 ```js
-import {SideNav} from 'react-side-nav';
+import {SideNav} from 'side-nav-react';
 ```
 
 ##### Icons
