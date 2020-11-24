@@ -2,7 +2,7 @@
 
 ## Install
 
-`yarn add react-side-nav`
+`yarn add side-nav-react`
 
 ##### import
 ```js
