@@ -4,7 +4,7 @@
 
 `yarn add side-nav-react`
 
-##### import
+##### then
 ```js
 import {SideNav} from 'side-nav-react';
 ```
