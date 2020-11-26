@@ -48,7 +48,7 @@ function MenuItem({
       pivot={pivot}
       bold={bold}
       isOpen={isOpen}
-      isActive={!icon && !isMenuOpen ? false : active}
+      isActive={!(icon || isMenuOpen) ? false : active}
       onClick={onClick}
     >
       {ChosenIcon && <ChosenIcon id="icon" />}
