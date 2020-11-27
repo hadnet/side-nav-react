@@ -1,3 +1,5 @@
+[![Depfu](https://badges.depfu.com/badges/c010dc1013dd3555e8f300d113513146/overview.svg)](https://depfu.com/github/hadnet/side-nav-react?project_id=17982)
+[![HitCount](http://hits.dwyl.com/hadnet/side-nav-react.svg)](http://hits.dwyl.com/hadnet/side-nav-react)
 # Getting started
 
 ## Install
