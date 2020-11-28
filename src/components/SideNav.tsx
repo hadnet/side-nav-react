@@ -86,14 +86,26 @@ function SideMenuItemGroup({title = 'My Group Title', children}: ItemGroupProps)
  * provide links to the main areas of an app or a site.
  */
 export class SideNav extends React.Component<SideNavProps, SideNavState> {
+  SideNavRef = React.createRef<HTMLDivElement>();
   state = {
     isOpen: false,
   };
-  setOpen = () => this.setState((s) => ({isOpen: !s.isOpen}));
   static Item = SideMenuItem;
   static ItemGroup = SideMenuItemGroup;
   static defaultProps = {
     contextTitle: '',
+  };
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+  setOpen = () => this.setState((s) => ({isOpen: !s.isOpen}));
+  handleClickOutside = (event: MouseEvent) => {
+    if (!this.SideNavRef?.current?.contains(event.target as Node)) {
+      return this.state.isOpen ? this.setOpen() : null;
+    }
   };
   render() {
     const {isOpen} = this.state;
@@ -104,7 +116,7 @@ export class SideNav extends React.Component<SideNavProps, SideNavState> {
     }
     return (
       <ThemeProvider theme={theme ? theme : dark ? defaultTheme.dark : defaultTheme.light}>
-        <SideMenu isOpen={isOpen}>
+        <SideMenu ref={this.SideNavRef} isOpen={isOpen}>
           <OpenContext.Provider value={isOpen}>
             <MenuItem pivot bold isOpen={isOpen} icon="FaBars" onClick={this.setOpen}>
               <Frame isOpen={isOpen}>
