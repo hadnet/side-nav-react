@@ -19,23 +19,49 @@ a TypeScript project, so you can use autocomplete too.
 
 ##### Example
 
-```jsx
-<SideNav>
-      <SideNav.Item icon="FaBitcoin" active onClick={() => console.log('clicked')}>
-        Option 1
-      </SideNav.Item>
-      <SideNav.Item icon="FaBitcoin">Option 2</SideNav.Item>
-      <SideNav.ItemGroup title="Group 1">
-        <SideNav.Item>Sub 1</SideNav.Item>
-        <SideNav.Item>Sub 2</SideNav.Item>
-      </SideNav.ItemGroup>
-      <SideNav.ItemGroup title="Group 2">
-        <SideNav.Item>Sub 1</SideNav.Item>
-        <SideNav.Item>Sub 2</SideNav.Item>
-      </SideNav.ItemGroup>
-      <SideNav.Item icon="FaBitcoin">Option 3</SideNav.Item>
-      <SideNav.Item icon="FaBitcoin">Option 4</SideNav.Item>
-    </SideNav>
+```tsx
+import {SideNav} from 'side-nav-react';
+import {useState} from "react";
+
+export default function App() {
+  const [page, setPage] = useState<string>('one');
+  return (
+    <>
+      <div style={{position: 'absolute'}}>
+        <SideNav>
+          <SideNav.Item icon="FaBitcoin" active={page === 'one'} onClick={() => setPage('one')}>
+            Option 1
+          </SideNav.Item>
+          <SideNav.Item icon="FaBitcoin" active={page === 'two'} onClick={() => setPage('two')}>
+            Option 2
+          </SideNav.Item>
+          <SideNav.ItemGroup title="Group 1">
+            <SideNav.Item onClick={() => setPage('G1 sub1')}>
+              Sub 1
+            </SideNav.Item>
+            <SideNav.Item onClick={() => setPage('G1 sub2')}>Sub 2</SideNav.Item>
+          </SideNav.ItemGroup>
+          <SideNav.ItemGroup title="Group 2">
+            <SideNav.Item onClick={() => setPage('G2 sub1')}>
+              Sub 1
+            </SideNav.Item>
+            <SideNav.Item onClick={() => setPage('G2 sub2')}>
+              Sub 2
+            </SideNav.Item>
+          </SideNav.ItemGroup>
+          <SideNav.Item icon="FaBitcoin" active={page === 'three'} onClick={() => setPage('three')}>Option 3</SideNav.Item>
+          <SideNav.Item icon="FaBitcoin" active={page === 'four'} onClick={() => setPage('four')}>Option 4</SideNav.Item>
+        </SideNav>
+      </div>
+      <div style={{
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+        }}>{page}</div>
+    </>
+  );
+}
 ```
 #### Theme
 
